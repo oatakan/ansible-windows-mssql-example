@@ -1,0 +1,4 @@
+- name: install sql server
+  hosts: all
+  roles:
+    - sql2016

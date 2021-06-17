@@ -1,0 +1,14 @@
+- name: Create a db on MSSQL using DSC
+  hosts: all
+  gather_facts: no
+  become: no
+  vars:
+    login_user: sa
+    login_password: "{{ mssql_password }}"
+    instance_name: "{{ ansible_hostname }}"
+  tasks:
+    - debug:
+        msg: "creating tables on db - {{ db_name }}"
+
+    - include_role:
+        name: sql_run_sql_script_dsc

@@ -1,0 +1,8 @@
+---
+
+environment: test
+db_name: rhdemo2
+
+sql_query: >-
+  CREATE TABLE [{{ db_name }}].[dbo].[dbcaudit_temp2]([SN] [varchar](255) NOT NULL,[Type]
+  [varchar](20) NOT NULL) ON [PRIMARY]

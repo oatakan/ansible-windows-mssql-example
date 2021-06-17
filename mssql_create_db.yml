@@ -1,0 +1,19 @@
+- name: Create a db on MSSQL
+  hosts: all
+  gather_facts: no
+  become: no
+
+  tasks:
+    - debug:
+        msg: "creating {{ db_name }}"
+
+    - name: Create a db
+      mssql_db:
+        login_host: "{{ ansible_host | default(ansible_ssh_host) | default(inventory_hostname) }}"
+        login_user: sa
+        login_password: '{{ mssql_password }}'
+        name: '{{ db_name }}'
+        state: present
+      delegate_to: localhost
+      vars:
+        ansible_connection: local

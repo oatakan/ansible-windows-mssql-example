@@ -57,13 +57,12 @@
   delay: 3
   retries: 5
 
-
-- name: install SQL 2016
+- name: install SQL 2019
   win_dsc:
     resource_name: Package
     Path: '{{ disk_image_out.mount_path }}setup.exe'
-    ProductId: '{0AE831BC-F2A8-4DE2-8FBF-68B220611A7F}'
-    Name: Microsoft SQL Server 2016
+    ProductId: '{{ product_id.sql2019 }}'
+    Name: Microsoft SQL Server 2019
     Arguments: >
       /Q
       /ACTION=Install

@@ -1,10 +1,5 @@
 ---
 
-- name: ensure required DSC module is available
-  win_psmodule:
-    name: SqlServerDsc
-    state: present
-
 - name: create database tables (SqlScriptQuery)
   win_dsc:
     resource_name: SqlScriptQuery

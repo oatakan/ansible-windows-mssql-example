@@ -1,10 +1,5 @@
 ---
 
-- name: ensure required DSC module is available
-  win_psmodule:
-    name: SqlServerDsc
-    state: present
-
 - name: create db scripts
   win_template:
     src: '{{ item }}.j2'

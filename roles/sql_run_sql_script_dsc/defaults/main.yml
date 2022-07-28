@@ -1,6 +1,6 @@
 ---
 
-temp_directory: '{{ ansible_env.TEMP }}'
+temp_directory: '{{ ansible_env.TEMP | default("C:\Windows\Temp") }}'
 script_execution_method: sqlscriptquery  #sqlscript or sqlscriptquery
 
 sql_query: >-

@@ -7,7 +7,7 @@
     login_password: "{{ mssql_password }}"
     instance_name: "{{ ansible_hostname }}"
   tasks:
-    - debug:
+    - ansible.builtin.debug:
         msg: "creating tables on db - {{ db_name }}"
 
     - include_role:

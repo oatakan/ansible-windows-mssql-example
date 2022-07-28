@@ -1,7 +1,7 @@
 ---
 
 - name: create db scripts
-  win_template:
+  ansible.windows.win_template:
     src: '{{ item }}.j2'
     dest: '{{ temp_directory }}\{{ item }}'
   loop:
@@ -10,7 +10,7 @@
     - Get-RunSQLScript.sql
 
 - name: create database tables (SqlScript)
-  win_dsc:
+  ansible.windows.win_dsc:
     resource_name: SqlScript
     ServerName: localhost
     InstanceName: MSSQLServer

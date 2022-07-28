@@ -1,7 +1,7 @@
 ---
 
 - name: ensure required DSC module is available
-  win_psmodule:
+  community.windows.win_psmodule:
     name: SqlServerDsc
     state: present
 

@@ -1,0 +1,30 @@
+- name: enable database mail
+  hosts: all
+  tasks:
+    - name: Install required DSC modules
+      community.windows.win_psmodule:
+        name: SqlServerDsc
+        state: present
+
+    - name: enable database mail XPs
+      ansible.windows.win_dsc:
+        resource_name: SqlConfiguration
+        InstanceName: MSSQLSERVER
+        OptionName: Database Mail XPs
+        OptionValue: 1
+        RestartService: false
+
+    - name: enable database mail
+      ansible.windows.win_dsc:
+        resource_name: SqlDatabaseMail
+        InstanceName: MSSQLSERVER
+        Ensure: Present
+        AccountName: MyMail
+        ProfileName: MyMailProfile
+        EmailAddress: admin@example.com
+        ReplyToAddress: admin@example.com
+        DisplayName: mail.example.com
+        MailServerName: mail.example.com
+        Description: Default mail account and profile
+        LoggingLevel: Normal
+        TcpPort: 25

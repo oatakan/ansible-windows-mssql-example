@@ -8,7 +8,7 @@
         msg: "creating {{ db_name }}"
 
     - name: Create a db
-      mssql_db:
+      community.general.mssql_db:
         login_host: "{{ ansible_host | default(ansible_ssh_host) | default(inventory_hostname) }}"
         login_user: sa
         login_password: '{{ mssql_password }}'

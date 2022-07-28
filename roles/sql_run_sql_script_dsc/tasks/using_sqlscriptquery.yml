@@ -1,7 +1,7 @@
 ---
 
 - name: create database tables (SqlScriptQuery)
-  win_dsc:
+  ansible.windows.win_dsc:
     resource_name: SqlScriptQuery
     ServerName: localhost
     InstanceName: MSSQLServer
